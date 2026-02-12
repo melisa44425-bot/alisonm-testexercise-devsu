@@ -1,0 +1,38 @@
+-----------------------------------------------------
+Pruebas E2E/SauceDemo - **Opción 2**
+-----------------------------------------------------
+
+• Se realizó la automatización completa del flujo de compra utilizando el framwork Cypress.
+• Se uso selectores estables (data-test) permitiendo mayor confiabilidad en la automatización.
+• Se uso el patrón Page Object Model (POM) para mantener el codigo:
+
+- Organizado.
+- Reutilizable.
+- Fácil de mantener.
+
+Validaciones:
+- Inicio de sesión de manera correcta.
+- Dos (2) productos agregados correctamente.
+- Flujo completo del checkout.
+- Mensaje final de confirmación validado.
+
+
+-----------------------------------------------------
+Pruebas API/PetStore - **Opción 2**
+-----------------------------------------------------
+• Se realizaron pruebas sobre los endpoints REST del servicio PetStore utilizando 'cy.request'.
+• Se verificó los códigos de respuesta HTTP y campos del body para asegurar el comportamiento esperado del servicio.
+• Se validaron opciones tipo CRUD:
+
+  - Creación de mascota.
+  - Consulta por ID.
+  - Actualización de estado.
+  - Consulta por estado.
+
+
+-----------------------------------------------------
+Conclusiones
+-----------------------------------------------------
+- El proyecto muestra automatización a nivel fronted 'E2E' y backend (API).
+- Se validó funcionalidad completa de aplicación y servicios.
+- La prueba se realizó utilizando Cypress, JavaScript y Node.js, con apoyo de Visual Studio Code.
