@@ -1,0 +1,59 @@
+QA Automation Exercise - Conclusions.
+
+=====================================================
+1. GENERAL SUMMARY
+=====================================================
+
+This exercise covers two automated testing areas:
+
+- End-to-end validation of a purchase flow in SauceDemo.
+- API validation of the Swagger PetStore service.
+
+The implementation demonstrates the use of Cypress for both UI and API testing, providing a simple and effective solution for validating critical business flows.
+
+=====================================================
+2. E2E TESTING CONCLUSIONS
+=====================================================
+
+The SauceDemo automated scenario validates the main purchase flow from login to final confirmation.
+
+Validated points:
+- Successful authentication with valid credentials.
+- Product selection and cart visualization.
+- Checkout information submission.
+- Successful order completion.
+- Final confirmation message display.
+
+Main observation:
+The flow is stable when using reliable selectors such as data-test attributes. This reduces maintenance effort and improves test robustness.
+
+=====================================================
+3. API TESTING CONCLUSIONS
+=====================================================
+
+The PetStore API tests validate the main CRUD related interactions requested in the exercise:
+
+- Pet creation.
+- Retrieval by ID.
+- Update of pet data.
+- Retrieval by status.
+
+Validated points:
+- Expected HTTP status codes.
+- Correct response body content.
+- Data consistency across requests.
+- Correct update of pet name and status to "sold".
+
+Main observation:
+Using dynamic data and reusing the generated pet ID across requests improves traceability and makes the tests more realistic and maintainable.
+
+=====================================================
+4. FINAL CONCLUSION
+=====================================================
+
+- The project demonstrates automation at both frontend (E2E) and backend (API) levels.
+- Complete validation of the application functionality and services was performed.
+- The testing was carried out using Cypress, JavaScript, and Node.js, with support from Visual Studio Code.
+
+The implemented solution satisfies the requested exercise scope and validates the expected E2E and API behaviors successfully.
+

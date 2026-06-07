@@ -1,51 +1,56 @@
-describe ('PetStore API - Flujo Mascota', () => {
-    const petId = 12345
+describe("PetStore API - Pet Flow", () => {
+  const petId = 12345;
+  const petName = "Taffus_Test";
 
-    it('Crear mascota', () => {
-        cy.request({
-            method: 'POST',
-            url: 'https://petstore.swagger.io/v2/pet',
-            body: {
-                id: petId,
-                name: 'Taffus_Test',
-                status: 'available'
-            }
-        }).then((response) => {
-            expect(response.status).to.eq(200)
-            expect(response.body.name).to.eq('Taffus_Test')
-        })
-    })
-    if('Consultar mascota por ID', () => {
-        cy.request({
-            method: 'GET',
-            url: 'https://petstore.swagger.io/v2/pet/${petId}'
-        }).then((response) => {
-            expect(response.status).to.eq(200)
-            expect(response.body.id).to.eq(petId)
-        })
-    })
+  it("should create a pet", () => {
+    cy.request({
+      method: "POST",
+      url: "https://petstore.swagger.io/v2/pet",
+      body: {
+        id: petId,
+        name: petName,
+        status: "available",
+      },
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.body.id).to.eq(petId);
+      expect(response.body.name).to.eq(petName);
+      expect(response.body.status).to.eq("available");
+    });
+  });
 
-    it('Actualizar status de mascota a sold', () => {
-        cy.request({
-            method: 'PUT',
-            url: 'https://petstore.swagger.io/v2/pet',
-            body: {
-                id: petId,
-                name: 'Taffus_Test',
-                status: 'sold'
-            }
-        }).then((response) => {
-            expect(response.status).to.eq(200)
-            expect(response.body.status).to.eq('sold')
-        })
-    })
+  it("should get the pet by ID", () => {
+    cy.request({
+      method: "GET",
+      url: `https://petstore.swagger.io/v2/pet/${petId}`,
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.body.id).to.eq(petId);
+    });
+  });
 
-    it('Consultar mascota en status sold', () => {
-        cy.request({
-            method: 'Get',
-            url: 'https://petstore.swagger.io/v2/pet/findByStatus?status=sold'
-        }).then((response) => {
-            expect(response.status).to.eq(200)
-        })
-    })
-})
+  it('should update the pet status to "sold"', () => {
+    cy.request({
+      method: "PUT",
+      url: "https://petstore.swagger.io/v2/pet",
+      body: {
+        id: petId,
+        name: petName,
+        status: "sold",
+      },
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.body.status).to.eq("sold");
+    });
+  });
+
+  it('should find pets with status "sold"', () => {
+    cy.request({
+      method: "GET",
+      url: "https://petstore.swagger.io/v2/pet/findByStatus?status=sold",
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.body).to.be.an("array");
+    });
+  });
+});
